@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "stretch",
+      "flex": 1,
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "rgb(151, 204, 232)",
+        "padding": 20,
+        "paddingTop": 30,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "rgb(255, 255, 255)",
+          "fontWeight": "bold",
+          "textAlign": "center",
+        }
+      }
+    >
+      Todo List
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "stretch",
+        "flex": 1,
+        "justifyContent": "flex-start",
+        "padding": 10,
+      }
+    }
+  >
+    <TextInput
+      placeholder="Enter an item!"
+    />
+    <RCTScrollView
+      data={
+        Array [
+          Object {
+            "text": "first",
+          },
+          Object {
+            "text": "second",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      horizontal={false}
+      initialNumToRender={10}
+      keyExtractor={[Function]}
+      maxToRenderPerBatch={10}
+      numColumns={1}
+      onContentSizeChange={[Function]}
+      onEndReachedThreshold={2}
+      onLayout={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      onViewableItemsChanged={undefined}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      style={
+        Object {
+          "marginTop": 20,
+        }
+      }
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    >
+      <View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            first
+          </Text>
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+          >
+            second
+          </Text>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+  <View
+    style={
+      Object {
+        "borderTopColor": "rgba(226, 226, 226, 0.7)",
+        "borderTopWidth": 1,
+      }
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "red",
+            "padding": 20,
+            "textAlign": "center",
+          }
+        }
+      >
+        Remove completed items
+      </Text>
+    </View>
+  </View>
+</View>
+`;
