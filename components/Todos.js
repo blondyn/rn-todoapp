@@ -4,47 +4,19 @@ import TodoInput from './TodoInput';
 import TodoList from './TodoList';
 
 export default class Todos extends React.Component {
-    state = {
-        todos: [],
-    };
-
     render() {
         return (
             <View style={styles.container}>
                 <TodoInput style={styles.searchInput}
-                           onSubmit={this.onSubmit}
+                           onSubmit={this.props.onSubmit}
                 />
-                <TodoList todos={this.state.todos}
-                          checkboxPressed={this.checkboxPressed}
-                          removeItem={this.removeItem}
+                <TodoList todos={this.props.todos}
+                          checkboxPressed={this.props.checkboxPressed}
+                          removeItem={this.props.removeItem}
                 />
             </View>
         )
     }
-
-    onSubmit = (value) => {
-        this.setState((prev = {}) => {
-            return {
-                todos: [{text: value, done: false, key: Date.now()}, ...prev.todos]
-            };
-        });
-    };
-
-    checkboxPressed = ({key, checked}) => {
-        const newTodosState = this.state.todos.map((todo) => {
-            if (todo.key === key) {
-                return Object.assign({}, todo, {done: checked})
-            }
-            return todo;
-        });
-        this.setState({todos: newTodosState});
-    };
-
-    removeItem = ({key}) => {
-        const todos = this.state.todos.filter((todo) => todo.key !== key);
-        this.setState({todos});
-    };
-
 }
 
 const styles = {

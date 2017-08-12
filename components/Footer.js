@@ -1,9 +1,9 @@
 import React from 'react';
 import {Text, View, TouchableOpacity} from 'react-native';
 
-export default () => (
+export default (props) => (
     <View style={styles.container}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={props.removeCompletedItems}>
             <Text style={styles.button}>Remove completed items</Text>
         </TouchableOpacity>
     </View>
