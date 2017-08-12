@@ -46,19 +46,13 @@ exports[`renders correctly 1`] = `
     }
   >
     <TextInput
+      onChangeText={[Function]}
+      onEndEditing={[Function]}
       placeholder="Enter an item!"
+      value=""
     />
     <RCTScrollView
-      data={
-        Array [
-          Object {
-            "text": "first",
-          },
-          Object {
-            "text": "second",
-          },
-        ]
-      }
+      data={Array []}
       disableVirtualization={false}
       getItem={[Function]}
       getItemCount={[Function]}
@@ -86,34 +80,7 @@ exports[`renders correctly 1`] = `
       updateCellsBatchingPeriod={50}
       windowSize={21}
     >
-      <View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
-            first
-          </Text>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <Text
-            accessible={true}
-            allowFontScaling={true}
-            disabled={false}
-            ellipsizeMode="tail"
-          >
-            second
-          </Text>
-        </View>
-      </View>
+      <View />
     </RCTScrollView>
   </View>
   <View

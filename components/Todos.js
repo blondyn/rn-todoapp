@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-import SearchInput from './SearchInput';
+import TodoInput from './TodoInput';
 import TodoList from './TodoList';
 
 export default class Todos extends React.Component {
@@ -11,8 +11,8 @@ export default class Todos extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <SearchInput style={styles.searchInput}
-                             onSubmit={this.onSubmit}
+                <TodoInput style={styles.searchInput}
+                           onSubmit={this.onSubmit}
                 />
                 <TodoList todos={this.state.todos}/>
             </View>
