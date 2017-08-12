@@ -14,7 +14,10 @@ export default class Todos extends React.Component {
                 <TodoInput style={styles.searchInput}
                            onSubmit={this.onSubmit}
                 />
-                <TodoList todos={this.state.todos} checkboxPressed={this.checkboxPressed}/>
+                <TodoList todos={this.state.todos}
+                          checkboxPressed={this.checkboxPressed}
+                          removeItem={this.removeItem}
+                />
             </View>
         )
     }
@@ -34,8 +37,13 @@ export default class Todos extends React.Component {
             }
             return todo;
         });
-        this.setState({todos: newTodosState})
-    }
+        this.setState({todos: newTodosState});
+    };
+
+    removeItem = ({key}) => {
+        const todos = this.state.todos.filter((todo) => todo.key !== key);
+        this.setState({todos});
+    };
 
 }
 
