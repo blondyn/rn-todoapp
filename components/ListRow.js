@@ -7,7 +7,7 @@ export default (props) => {
     return (<View style={styles.container}>
         <Text style={styles.cell}>{props.item.text}</Text>
         <View style={styles.toolbar}>
-            <CheckButton/>
+            <CheckButton item={props.item} checkboxPressed={props.checkboxPressed}/>
             <RemoveButton/>
         </View>
     </View>)

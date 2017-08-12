@@ -1,17 +1,24 @@
 import React from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+import {View, TouchableOpacity} from 'react-native';
 
 export default class CheckButton extends React.Component {
     state = {
         checked: false
-    }
+    };
 
     render() {
         const style = this.state.checked ? [styles.checkBox, styles.checked] : [styles.checkBox];
-        return (<TouchableOpacity onPress={this.onPress}><Text style={style}></Text></TouchableOpacity>)
+        return (
+            <TouchableOpacity onPress={this.onPress}>
+                <View style={style}/>
+            </TouchableOpacity>)
     }
 
-    onPress = () => this.setState((prev) => ({checked: !prev.checked}))
+    onPress = (v) => this.setState((prev) => {
+        const {checkboxPressed, item} = this.props;
+        checkboxPressed({key: item.key, checked: !prev.checked});
+        return {checked: !prev.checked};
+    })
 }
 
 

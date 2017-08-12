@@ -14,7 +14,7 @@ export default class Todos extends React.Component {
                 <TodoInput style={styles.searchInput}
                            onSubmit={this.onSubmit}
                 />
-                <TodoList todos={this.state.todos}/>
+                <TodoList todos={this.state.todos} checkboxPressed={this.checkboxPressed}/>
             </View>
         )
     }
@@ -22,10 +22,20 @@ export default class Todos extends React.Component {
     onSubmit = (value) => {
         this.setState((prev = {}) => {
             return {
-                todos: [{text: value, done: false, key: new Date().toLocaleString()}, ...prev.todos]
+                todos: [{text: value, done: false, key: Date.now()}, ...prev.todos]
             };
         });
     };
+
+    checkboxPressed = ({key, checked}) => {
+        const newTodosState = this.state.todos.map((todo) => {
+            if (todo.key === key) {
+                return Object.assign({}, todo, {done: checked})
+            }
+            return todo;
+        });
+        this.setState({todos: newTodosState})
+    }
 
 }
 

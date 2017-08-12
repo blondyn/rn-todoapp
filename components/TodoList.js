@@ -6,7 +6,7 @@ export default (props) => {
     return (
         <FlatList
             data={props.todos}
-            renderItem={({item}) => <ListRow item={item} />}
+            renderItem={({item}) => <ListRow item={item} checkboxPressed={props.checkboxPressed}/>}
             style={styles.container}
         />
     )
