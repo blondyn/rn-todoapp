@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import Title from './Title';
-import List from './List';
+import Todos from './Todos';
 import Footer from './Footer';
 
 export default class todoApp extends Component {
@@ -9,7 +9,7 @@ export default class todoApp extends Component {
         return (
             <View style={styles.container}>
                 <Title />
-                <List style={styles.list} />
+                <Todos style={styles.list} />
                 <Footer />
             </View>
         );

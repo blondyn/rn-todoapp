@@ -6,21 +6,18 @@ export default class List extends React.Component {
     render() {
         return (
             <FlatList
-                data={data}
+                data={this.props.todos}
                 renderItem={this.renderItem}
-            style={styles.container}/>
+                style={styles.container}
+            />
         )
     }
 
-    renderItem({item}) {
-        return (<Text>{item.text}</Text>)
-    }
+    renderItem = ({item}) => (<Text>{item.text}</Text>)
 }
-
-const data = [{text: 'first'}, {text: 'second'}];
 
 const styles = {
     container: {
         marginTop: 20
     },
-}
+};
