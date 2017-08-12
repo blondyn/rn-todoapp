@@ -22,7 +22,7 @@ export default class Todos extends React.Component {
     onSubmit = (value) => {
         this.setState((prev = {}) => {
             return {
-                todos: [{text: value, done: false}, ...prev.todos]
+                todos: [{text: value, done: false, key: new Date().toLocaleString()}, ...prev.todos]
             };
         });
     };
