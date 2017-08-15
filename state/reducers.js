@@ -6,8 +6,8 @@ import {
 } from './types';
 
 const actions = {
-    [ADD_ITEM]: (state, action) => {
-        const newTodo = {text: action.payload, done: false, key: Date.now()};
+    [ADD_ITEM]: (state, action, clock) => {
+        const newTodo = {text: action.payload, done: false, key: clock.now()};
         return {todos: [newTodo, ...state.todos]}
     },
     [REMOVE_ITEM]: (state, action) => {
@@ -15,10 +15,10 @@ const actions = {
         return {todos: newTodosState};
     },
     [MARK_ITEM]: (state, action) => {
-        const {key, checked} = action.payload;
+        const {key} = action.payload;
         const newTodosState = state.todos.map((todo) => {
             if (todo.key === key) {
-                return Object.assign({}, todo, {done: checked})
+                return {...todo, done: !todo.done}
             }
             return todo;
         });
@@ -30,10 +30,10 @@ const actions = {
     }
 };
 
-export default (state = {todos: []}, action) => {
+export default (state = {todos: []}, action, clock = Date) => {
     const reducer = actions[action.type];
     if (typeof reducer === 'function') {
-        return reducer(state, action);
+        return reducer(state, action, clock);
     }
     return state;
 };
