@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
-import Title from './Title';
-import Todos from './Todos';
-import Footer from './Footer';
+import Title from '../components/Title';
+import Todos from '../components/Todos';
+import Footer from '../components/Footer';
 import store from '../state/store';
 import {
     ADD_ITEM,
@@ -21,7 +21,7 @@ export default class todoApp extends Component {
             <View style={styles.container}>
                 <Title/>
                 <Todos style={styles.list}
-                       todos={store.getState().todos}
+                       todos={store.getState()}
                        onSubmit={this.onSubmit}
                        checkboxPressed={this.checkboxPressed}
                        removeItem={this.removeItem}
@@ -33,22 +33,22 @@ export default class todoApp extends Component {
 
     onSubmit = (value) => {
         store.dispatch({type: ADD_ITEM, payload: value})
-        this.setState({todos: store.getState().todos})
+        this.setState(store.getState())
     };
 
     checkboxPressed = ({key, checked}) => {
         store.dispatch({type: MARK_ITEM, payload: {key, checked}})
-        this.setState({todos: store.getState().todos});
+        this.setState(store.getState());
     };
 
     removeItem = ({key}) => {
         store.dispatch({type: REMOVE_ITEM, payload: key});
-        this.setState({todos: store.getState().todos});
+        this.setState(store.getState());
     };
 
     removeCompletedItems = () => {
         store.dispatch({type: REMOVE_COMPLETED_ITEMS});
-        this.setState({todos: store.getState().todos});
+        this.setState(store.getState());
     }
 }
 
