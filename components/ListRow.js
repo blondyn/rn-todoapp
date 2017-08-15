@@ -2,8 +2,9 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import CheckButton from './CheckButton';
 import RemoveButton from './RemoveButton';
+import PropTypes from 'prop-types';
 
-export default (props) => {
+const ListRow =  (props) => {
     return (<View style={styles.container}>
         <Text style={styles.cell}>{props.item.text}</Text>
         <View style={styles.toolbar}>
@@ -11,7 +12,13 @@ export default (props) => {
             <RemoveButton item={props.item} removeItem={props.removeItem}/>
         </View>
     </View>)
-}
+};
+
+ListRow.propTypes = {
+    item: PropTypes.object,
+    checkboxPressed: PropTypes.func,
+    removeItem: PropTypes.func
+};
 
 const styles = {
     container: {
@@ -33,4 +40,6 @@ const styles = {
         justifyContent: 'space-around',
         alignItems: 'center'
     }
-}
+};
+
+export default ListRow;

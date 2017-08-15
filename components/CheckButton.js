@@ -1,7 +1,8 @@
 import React from 'react';
 import {View, TouchableOpacity} from 'react-native';
+import PropTypes from 'prop-types';
 
-export default class CheckButton extends React.Component {
+class CheckButton extends React.Component {
     state = {
         checked: false
     };
@@ -21,6 +22,11 @@ export default class CheckButton extends React.Component {
     })
 }
 
+CheckButton.propTypes = {
+  item: PropTypes.object.isRequired,
+  checkboxPressed: PropTypes.func.isRequired
+};
+
 
 const styles = {
     checkBox: {
@@ -34,3 +40,5 @@ const styles = {
         backgroundColor: 'rgba(0, 0, 0, 0.7)'
     }
 };
+
+export default CheckButton;

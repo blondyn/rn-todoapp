@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
+import PropTypes from 'prop-types';
 
 export default class RemoveButton extends React.Component {
     render() {
@@ -17,6 +18,11 @@ export default class RemoveButton extends React.Component {
         removeItem({key: item.key})
     }
 }
+
+RemoveButton.propTypes = {
+    removeItem: PropTypes.func.isRequired,
+    item: PropTypes.object.isRequired
+};
 const styles = {
     removeButton: {
         color: 'rgba(255, 0, 0, 0.7)',

@@ -32,12 +32,12 @@ export default class todoApp extends Component {
     }
 
     onSubmit = (value) => {
-        store.dispatch({type: ADD_ITEM, payload: value})
+        store.dispatch({type: ADD_ITEM, payload: value});
         this.setState(store.getState())
     };
 
     checkboxPressed = ({key, checked}) => {
-        store.dispatch({type: MARK_ITEM, payload: {key, checked}})
+        store.dispatch({type: MARK_ITEM, payload: {key, checked}});
         this.setState(store.getState());
     };
 
