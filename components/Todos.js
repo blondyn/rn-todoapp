@@ -4,21 +4,19 @@ import TodoInput from './TodoInput';
 import TodoList from './TodoList';
 import PropTypes from 'prop-types';
 
-export default class Todos extends React.Component {
-    render() {
-        const {onSubmit, todos, checkboxPressed, removeItem} = this.props;
-        return (
-            <View style={styles.container}>
-                <TodoInput style={styles.searchInput}
-                           onSubmit={onSubmit}
-                />
-                <TodoList todos={todos}
-                          checkboxPressed={checkboxPressed}
-                          removeItem={removeItem}
-                />
-            </View>
-        )
-    }
+const Todos = (props) => {
+    const {onSubmit, todos, checkboxPressed, removeItem} = props;
+    return (
+        <View style={styles.container}>
+            <TodoInput style={styles.searchInput}
+                       onSubmit={onSubmit}
+            />
+            <TodoList todos={todos}
+                      checkboxPressed={checkboxPressed}
+                      removeItem={removeItem}
+            />
+        </View>
+    )
 }
 
 Todos.propTypes = {
@@ -26,7 +24,7 @@ Todos.propTypes = {
     checkboxPressed: PropTypes.func.isRequired,
     removeItem: PropTypes.func.isRequired,
     todos: PropTypes.arrayOf(PropTypes.shape({
-        text: PropTypes.object,
+        text: PropTypes.string,
         done: PropTypes.bool,
         key: PropTypes.number
     })),
@@ -40,3 +38,5 @@ const styles = {
         padding: 10
     }
 };
+
+export default Todos;
